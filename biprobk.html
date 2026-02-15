@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+/* Envelope */
+.envelope {
+  width: 200px;
+  height: 120px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 60px solid #ff4d6d;
+}
+
+.open .letter {
+  transform: translateY(-200px);
+  opacity: 1;
+}
+
+.letter {
+  position: absolute;
+  width: 300px;
+  max-width: 90vw;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50px);
+  transition: 1s ease;
+  opacity: 0;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()"></div>
+
+<div class="letter" id="letter">
+💌 Hey… this is your Bipro ❤️<br><br>
+
+I hope you are smiling right now 😊💖<br><br>
+
+I don’t have perfect words… but I have real feelings.<br><br>
+
+You are truly the most beautiful creation of God 🌹✨<br><br>
+
+Not just by face… but by heart and soul ❤️<br><br>
+
+You make everything feel softer, warmer, and better 💕<br><br>
+
+I don’t want to say too much.<br>
+I just want you to know…<br><br>
+
+<b>You are very special to me 💌❤️</b><br><br>
+
+1-4-3 💖<br><br>
+
+— Bipro 💘
+</div>
+
+<script>
+function openLetter() {
+  document.body.classList.add("open");
+}
+
+/* Floating hearts generator */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
